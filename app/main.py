@@ -4,7 +4,7 @@ from typing import Callable
 _function_caches = {}
 
 
-def cache(func: Callable) -> Callable:
+def cache(func: Callable) -> Callable[..., any]:
     _function_caches[func] = {}
 
     def wrapper(*args, **kwargs):
@@ -22,8 +22,9 @@ def cache(func: Callable) -> Callable:
 
 
 @cache
-def long_time_func(a: int, b: int, c: int) -> int:
-    return (a ** b ** c) % (a * c)
+def long_time_func(base: int, exponent: int, modulo: int) -> int:
+    return (base ** exponent ** modulo) % (base * modulo)
+
 
 @cache
 def long_time_func_2(n_tuple: tuple, power: int) -> list:

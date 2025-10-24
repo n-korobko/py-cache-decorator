@@ -1,6 +1,8 @@
 from typing import Callable
 
+
 _function_caches = {}
+
 
 def cache(func: Callable) -> Callable:
     _function_caches[func] = {}

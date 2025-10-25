@@ -2,7 +2,6 @@ from typing import Callable, Any
 from functools import wraps
 
 
-
 def cache(func: Callable) -> Callable[..., Any]:
     cache_date = {}
 
